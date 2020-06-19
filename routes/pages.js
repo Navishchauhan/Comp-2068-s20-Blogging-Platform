@@ -1,5 +1,5 @@
 // JavaScript Document
-console.log("exported the module");
+ 
 const { home, about, contact } = require('../controllers/PagesControllers');
 
 module.exports = router => {
