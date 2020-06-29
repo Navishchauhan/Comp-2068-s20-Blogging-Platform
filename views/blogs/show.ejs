@@ -10,6 +10,7 @@
 		<br>
 		<small><%= (blog.updatedAt.toLocaleString("en-CA")) %></small>
 	</header>
+	<p><strong>By: <%= blog.user.fullname %>/</strong></p>
 	<hr>
 	<div class="content">
 	<%- blog.content %>
