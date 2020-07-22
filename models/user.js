@@ -35,6 +35,9 @@ const UserSchema = new mongoose.Schema({
     }
   }, {
     timestamps: true,
+    toJSON: {
+      getters: true
+    }
   });
   
 UserSchema.virtual('emailConfirmation')

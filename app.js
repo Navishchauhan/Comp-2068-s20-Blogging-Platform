@@ -69,8 +69,18 @@ app.use('/', (req, res, next) => {
 
 //register our routing 
 const routes = require('./routes.js');
-app.use('/', routes);
+const user = require('./models/user');
+app.use('/api', routes);
+
+app.get('/test', (req, res) => {
+  res.status(200).json({message: 'Hello World'});
+});
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 //set up our server 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
